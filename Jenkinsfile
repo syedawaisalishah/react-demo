@@ -1,9 +1,11 @@
-pipline{
+pipeline{
+    
     agent any
-    stages{
-        environment {
+    environment {
             VERCEL_TOKEN=credentials("vercel_token")
         }
+    stages{
+        
         stage("install"){
             steps{
                 bat "npm install"
