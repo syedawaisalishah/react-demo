@@ -1,4 +1,4 @@
-Pipline{
+pipline{
     agent any
     stages{
         environment {
