@@ -1,50 +1,21 @@
-// pipline{
-//     agent any
-//     stages{
-//         environment {
-//             VERCEL_TOKEN=credentials("vercel_token")
-//         }
-//         stage("install"){
-//             steps{
-//                 bat "npm install"
-//             }
-//         }
-//         stage("build"){
-//             steps{
-//              bat "npm run build"
-//             }
-//         }
-//         stage("deploy"){
-//             steps{
-//                 bat 'npx vercel --prod --yes --token=%VERCEL_TOKEN%'
-//             }
-//         }
-//     }
-// }
-
-
-pipeline {
+pipline{
     agent any
-
-    environment {
-        VERCEL_TOKEN = credentials('vercel_token')
-    }
-
-    stages {
-        stage('Install') {
-            steps {
-                bat 'npm install'
+    stages{
+        environment {
+            VERCEL_TOKEN=credentials("vercel_token")
+        }
+        stage("install"){
+            steps{
+                bat "npm install"
             }
         }
-
-        stage('Build') {
-            steps {
-                bat 'npm run build'
+        stage("build"){
+            steps{
+             bat "npm run build"
             }
         }
-
-        stage('Deploy') {
-            steps {
+        stage("deploy"){
+            steps{
                 bat 'npx vercel --prod --yes --token=%VERCEL_TOKEN%'
             }
         }
