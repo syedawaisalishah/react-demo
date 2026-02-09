@@ -1,7 +1,7 @@
 Pipline{
     agent any
     stages{
-        environment{
+        environment {
             VERCEL_TOKEN=credentials("vercel_token")
         }
         stage("install"){
@@ -16,7 +16,7 @@ Pipline{
         }
         stage("deploy"){
             steps{
-                bat "npx vercel --prod --yes --token=$vercel_token"
+                bat 'npx vercel --prod --yes --token=%VERCEL_TOKEN%'
             }
         }
     }
